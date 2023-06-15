@@ -28,25 +28,24 @@ class User(db.Model):
     
 class Muestra(db.Model):
     id = db.Column(db.Integer, primary_key=True)    
-    project_name = db.Column(db.string(150), unique=False, nullable=False)
+    project_name = db.Column(db.String(150), unique=False, nullable=False)
     ubication = db.Column(db.String(120), unique=False, nullable=False)
-    ubication_image = db.Column(db.String(120), unique=False, nullable=False)
+    ubication_image = db.Column(db.String(400), unique=False, nullable=False)
     area = db.Column(db.String(80), unique=False, nullable=False)
     specimen = db.Column(db.String(80), unique=False, nullable=False)
     quality_specimen = db.Column(db.String(80), unique=False, nullable=False)
     image_specimen= db.Column(db.String(80), unique=False, nullable=False)
-    aditional_coments = db.Column(db.String(80), unique=False, nullable=False)
+    aditional_comments = db.Column(db.String(80), unique=False, nullable=False)
    
     def serialize(self):
         return {
-            "id" : self.id, 
+            "id" : self.id,
             "project_name": self.project_name,
             "ubication": self.ubication,
             "ubication_image": self.ubication_image,
             "area": self.area,
             "specimen": self.specimen,
-            "quantity_specimen": self.quantity_specimen,
             "quality_specimen": self.quality_specimen,
-            "image": self.image,
-            "aditional_coments": self.aditional_coments
+            "image_specimen": self.image_specimen,
+            "aditional_comments": self.aditional_comments,
         }
